@@ -5,12 +5,57 @@ from nltk.corpus import stopwords
 import requests
 import streamlit as st
 import spacy
+import re
+from email import policy
+from email.parser import BytesParser
 
 # nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 nlp = spacy.load("en_core_web_sm")
 
-def parse_email(email_raw):
+
+def parse_email_inputemailis_emailbytes(raw_email_bytes):
+    """
+    Parses real-life raw email bytes and returns a cleaned string (subject + body).
+    
+    Args:
+        raw_email_bytes (bytes): Raw email data from .eml file or email server.
+    
+    Returns:
+        str: Cleaned and combined subject and body text.
+    """
+    # Parse the raw email bytes
+    msg = BytesParser(policy=policy.default).parsebytes(raw_email_bytes)
+
+    subject = msg['subject'] or ''
+    body = ''
+
+    # Extract plain text body
+    if msg.is_multipart():
+        for part in msg.walk():
+            if part.get_content_type() == 'text/plain' and not part.get_content_disposition():
+                body = part.get_content()
+                break
+    else:
+        body = msg.get_content()
+
+    # Cleaning function
+    def clean_text(text):
+        text = re.sub(r'http\S+', '', text)            # Remove URLs
+        text = re.sub(r'\s+', ' ', text)               # Normalize whitespace
+        text = re.sub(r'[^a-zA-Z0-9\s]', '', text)     # Remove special characters
+        return text.strip().lower()
+
+    cleaned_subject = clean_text(subject)
+    cleaned_body = clean_text(body)
+
+    print(cleaned_subject)
+    print(cleaned_body)
+
+    # Combine subject and body for classification
+    return cleaned_subject, cleaned_body
+
+def parse_email_inputemailisdict_(email_raw):
     """
     Parses raw email input and returns a cleaned string (subject + body).
     
