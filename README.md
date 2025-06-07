@@ -62,7 +62,7 @@ Cleaning text removes noise and ensures the model sees standardized input for be
 - **Process:**
   - Load a saved machine learning model and text vectorizer from disk.
   - Vectorize the input text using the same vectorizer.
-  - Predict the email type label: complaint, request, order, or others.
+  - Predict the email type label: inquiry, suggestion, issue or other matters.
 - **Output:** Email type as a string label.
 
 *Why?*  
