@@ -439,6 +439,16 @@ def extract_keywords_and_entities(text):
 
 ---
 
+## Results
+
+![Dashboard](https://raw.githubusercontent.com/PiyushLuitel-07/Email-Automation-Agent/main/images/1_dashboard.png)
+![Image 2](https://raw.githubusercontent.com/PiyushLuitel-07/Email-Automation-Agent/main/images/2.png)
+![Image 3](https://raw.githubusercontent.com/PiyushLuitel-07/Email-Automation-Agent/main/images/3_.png)
+![Image 4](https://raw.githubusercontent.com/PiyushLuitel-07/Email-Automation-Agent/main/images/4_.png)
+![Image 5](https://raw.githubusercontent.com/PiyushLuitel-07/Email-Automation-Agent/main/images/5_.png)
+![Image 6](https://raw.githubusercontent.com/PiyushLuitel-07/Email-Automation-Agent/main/images/6_.png)
+
+
 ## ▶️ Running the App
 
 ```bash
