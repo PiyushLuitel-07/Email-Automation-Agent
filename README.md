@@ -162,7 +162,7 @@ def parse_email_inputemailisdict_(email_raw):
   - Vectorize the input text using `TfidfVectorizer`.
   - Predict the email type (label 0–3) and return the human-readable type.
 
-- **Model Used**: `RandomForestClassifier` with TF-IDF features.
+- **Model Used**: `Logistic Rgression` with TF-IDF features.
 
 ✅ *Why*: Logistic Regression gives robust classification for textual data and handles small to medium datasets effectively.
 
